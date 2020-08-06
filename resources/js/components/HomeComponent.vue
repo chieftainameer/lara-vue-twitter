@@ -1,52 +1,52 @@
 <template>
 
-        <v-app>
-            <div>
-        <v-app-bar color="primary" dark>
-            <v-icon left>mdi-twitter</v-icon>
-            <v-toolbar-title class="">Twitter</v-toolbar-title>
-            <v-spacer></v-spacer>
-            <v-toolbar-items>
-                <v-btn class="mr-2" color="white"  text>
-                    <v-icon left red>mdi-home</v-icon>
-                    Home
-                </v-btn>
-                <v-btn class="mr-2" color="white"  text>
-                    <v-icon left red>mdi-account-group</v-icon>
-                    Users
-                </v-btn>
-                <v-btn class="mr-2" color="white"  text>
-                    <v-icon left red >mdi-youtube-tv</v-icon>
-                    Media
-                </v-btn>
-                <v-menu offset-y open-on-hover scale>
-                    <template v-slot:activator="{on,attrs}" >
-                        <v-btn
-                        color="white"
-                        v-bind="attrs"
-                        v-on="on"
-                        dark
-                        text
-                        >
-                            Ameer Hamza
-                            <v-icon right small>mdi-menu-down</v-icon>
-                        </v-btn>
-                    </template>
-                    <v-list>
-                        <v-list-item link to="#">
-                            <v-list-item-title>Profile</v-list-item-title>
-                        </v-list-item>
-                        <v-list-item link to="#">
-                            <v-list-item-title>Settings</v-list-item-title>
-                        </v-list-item>
-                        <v-list-item link to="#">
-                            <v-list-item-title>Logout</v-list-item-title>
-                        </v-list-item>
-                    </v-list>
-                </v-menu>
-            </v-toolbar-items>
-        </v-app-bar>
-        </div>
+
+<!--            <div>-->
+<!--        <v-app-bar color="primary" dark>-->
+<!--            <v-icon left>mdi-twitter</v-icon>-->
+<!--            <v-toolbar-title class="">Twitter</v-toolbar-title>-->
+<!--            <v-spacer></v-spacer>-->
+<!--            <v-toolbar-items>-->
+<!--                <v-btn class="mr-2" color="white"  text>-->
+<!--                    <v-icon left red>mdi-home</v-icon>-->
+<!--                    Home-->
+<!--                </v-btn>-->
+<!--                <v-btn class="mr-2" color="white"  text>-->
+<!--                    <v-icon left red>mdi-account-group</v-icon>-->
+<!--                    Users-->
+<!--                </v-btn>-->
+<!--                <v-btn class="mr-2" color="white"  text>-->
+<!--                    <v-icon left red >mdi-youtube-tv</v-icon>-->
+<!--                    Media-->
+<!--                </v-btn>-->
+<!--                <v-menu offset-y open-on-hover scale>-->
+<!--                    <template v-slot:activator="{on,attrs}" >-->
+<!--                        <v-btn-->
+<!--                        color="white"-->
+<!--                        v-bind="attrs"-->
+<!--                        v-on="on"-->
+<!--                        dark-->
+<!--                        text-->
+<!--                        >-->
+<!--                            Ameer Hamza-->
+<!--                            <v-icon right small>mdi-menu-down</v-icon>-->
+<!--                        </v-btn>-->
+<!--                    </template>-->
+<!--                    <v-list>-->
+<!--                        <v-list-item link to="#">-->
+<!--                            <v-list-item-title>Profile</v-list-item-title>-->
+<!--                        </v-list-item>-->
+<!--                        <v-list-item link to="#">-->
+<!--                            <v-list-item-title>Settings</v-list-item-title>-->
+<!--                        </v-list-item>-->
+<!--                        <v-list-item link to="#">-->
+<!--                            <v-list-item-title>Logout</v-list-item-title>-->
+<!--                        </v-list-item>-->
+<!--                    </v-list>-->
+<!--                </v-menu>-->
+<!--            </v-toolbar-items>-->
+<!--        </v-app-bar>-->
+<!--        </div>-->
             <v-main>
                 <v-container fluid>
                     <v-row>
@@ -97,7 +97,6 @@
                     </v-row>
                 </v-container>
             </v-main>
-        </v-app>
 </template>
 
 <script>

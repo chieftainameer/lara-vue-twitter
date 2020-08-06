@@ -7,7 +7,7 @@
  require('./bootstrap');
 import router from './router';
 import vuetify from './vuetify';
-import HomeComponent from "./components/HomeComponent";
+import MyApp from "./MyApp";
 
 window.Vue = require('vue');
 
@@ -35,7 +35,7 @@ window.Vue = require('vue');
     vuetify,
     router,
      components:{
-        'home-component' : HomeComponent
+        'home-component' : MyApp
      }
 
 });
