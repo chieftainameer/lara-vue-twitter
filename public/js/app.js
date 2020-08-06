@@ -80539,6 +80539,7 @@ router.beforeEach(function (to, from, next) {
   var token = localStorage.getItem('ACCESS_TOKEN') || null;
   console.log("Bearer " + token);
   window.axios.defaults.headers['Authorization'] = "Bearer " + token;
+  next();
 });
 /* harmony default export */ __webpack_exports__["default"] = (router);
 

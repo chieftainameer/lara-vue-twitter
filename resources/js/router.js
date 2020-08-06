@@ -57,6 +57,7 @@ router.beforeEach((to,from,next) => {
     const token = localStorage.getItem('ACCESS_TOKEN') || null;
     console.log("Bearer " + token);
     window.axios.defaults.headers['Authorization'] = "Bearer " + token;
+    next();
 })
 
 export default router;
