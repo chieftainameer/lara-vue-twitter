@@ -2074,7 +2074,31 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = ({});
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      email: '',
+      password: ''
+    };
+  },
+  methods: {
+    login: function login() {
+      var _this = this;
+
+      axios.post('/api/user/login', {
+        email: this.email,
+        password: this.password
+      }).then(function (res) {
+        console.log(res.data);
+        localStorage.setItem('ACCESS_TOKEN', res.data.access_token);
+
+        _this.$router.push('/home');
+      })["catch"](function (err) {
+        console.log("error here " + err.data);
+      });
+    }
+  }
+});
 
 /***/ }),
 
@@ -2109,7 +2133,39 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = ({});
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      email: '',
+      fname: '',
+      lname: '',
+      password: '',
+      cpass: ''
+    };
+  },
+  methods: {
+    register: function register() {
+      var _this = this;
+
+      if (this.password === this.cpass) {
+        axios.post('/api/user/register', {
+          email: this.email,
+          firstName: this.fname,
+          lastName: this.lname,
+          password: this.password
+        }).then(function (res) {
+          console.log(res.data);
+
+          _this.$router.push('/login');
+        })["catch"](function (err) {
+          return console.log("o ly error " + err.data);
+        });
+      } else {
+        console.log("Passwords do not match");
+      }
+    }
+  }
+});
 
 /***/ }),
 
@@ -2157,7 +2213,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.action-side[data-v-782dcf83]{\n    overflow-y:scroll;\n}\n", ""]);
+exports.push([module.i, "\n.action-side[data-v-782dcf83]{\n    height: 100%;\n    overflow-y:scroll;\n}\n", ""]);
 
 // exports
 
@@ -20711,17 +20767,35 @@ var render = function() {
                       _vm._v(" "),
                       _c("v-text-field", {
                         staticClass: "mx-8 my-5",
-                        attrs: { type: "email", label: "Email/username" }
+                        attrs: { type: "email", label: "Email/username" },
+                        model: {
+                          value: _vm.email,
+                          callback: function($$v) {
+                            _vm.email = $$v
+                          },
+                          expression: "email"
+                        }
                       }),
                       _vm._v(" "),
                       _c("v-text-field", {
                         staticClass: "mx-8 my-5",
-                        attrs: { type: "password", label: "Password" }
+                        attrs: { type: "password", label: "Password" },
+                        model: {
+                          value: _vm.password,
+                          callback: function($$v) {
+                            _vm.password = $$v
+                          },
+                          expression: "password"
+                        }
                       }),
                       _vm._v(" "),
                       _c(
                         "v-btn",
-                        { staticClass: "mb-5", attrs: { color: "primary" } },
+                        {
+                          staticClass: "mb-5",
+                          attrs: { color: "primary" },
+                          on: { click: _vm.login }
+                        },
                         [
                           _c(
                             "v-icon",
@@ -20802,32 +20876,71 @@ var render = function() {
                       _vm._v(" "),
                       _c("v-text-field", {
                         staticClass: "mx-8 my-5",
-                        attrs: { type: "email", label: "Email/username" }
+                        attrs: { type: "email", label: "Email/username" },
+                        model: {
+                          value: _vm.email,
+                          callback: function($$v) {
+                            _vm.email = $$v
+                          },
+                          expression: "email"
+                        }
                       }),
                       _vm._v(" "),
                       _c("v-text-field", {
                         staticClass: "mx-8 my-5",
-                        attrs: { type: "text", label: "First Name" }
+                        attrs: { type: "text", label: "First Name" },
+                        model: {
+                          value: _vm.fname,
+                          callback: function($$v) {
+                            _vm.fname = $$v
+                          },
+                          expression: "fname"
+                        }
                       }),
                       _vm._v(" "),
                       _c("v-text-field", {
                         staticClass: "mx-8 my-5",
-                        attrs: { type: "text", label: "Last Name" }
+                        attrs: { type: "text", label: "Last Name" },
+                        model: {
+                          value: _vm.lname,
+                          callback: function($$v) {
+                            _vm.lname = $$v
+                          },
+                          expression: "lname"
+                        }
                       }),
                       _vm._v(" "),
                       _c("v-text-field", {
                         staticClass: "mx-8 my-5",
-                        attrs: { type: "password", label: "Password" }
+                        attrs: { type: "password", label: "Password" },
+                        model: {
+                          value: _vm.password,
+                          callback: function($$v) {
+                            _vm.password = $$v
+                          },
+                          expression: "password"
+                        }
                       }),
                       _vm._v(" "),
                       _c("v-text-field", {
                         staticClass: "mx-8 my-5",
-                        attrs: { type: "password", label: "Confirm Password" }
+                        attrs: { type: "password", label: "Confirm Password" },
+                        model: {
+                          value: _vm.cpass,
+                          callback: function($$v) {
+                            _vm.cpass = $$v
+                          },
+                          expression: "cpass"
+                        }
                       }),
                       _vm._v(" "),
                       _c(
                         "v-btn",
-                        { staticClass: "mb-5", attrs: { color: "primary" } },
+                        {
+                          staticClass: "mb-5",
+                          attrs: { color: "primary" },
+                          on: { click: _vm.register }
+                        },
                         [
                           _c(
                             "v-icon",
@@ -80383,22 +80496,49 @@ __webpack_require__.r(__webpack_exports__);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]);
 var routes = [{
   path: '/',
-  component: _components_Login__WEBPACK_IMPORTED_MODULE_2__["default"]
+  redirect: '/login'
 }, {
   path: '/login',
   component: _components_Login__WEBPACK_IMPORTED_MODULE_2__["default"],
-  name: "Login"
+  name: "Login",
+  beforeEnter: function beforeEnter(to, from, next) {
+    if (localStorage.getItem('ACCESS_TOKEN')) {
+      next('/home');
+    } else {
+      next();
+    }
+  }
 }, {
   path: '/register',
   component: _components_Register__WEBPACK_IMPORTED_MODULE_3__["default"],
-  name: 'Register'
+  name: 'Register',
+  beforeEnter: function beforeEnter(to, from, next) {
+    if (localStorage.getItem('ACCESS_TOKEN')) {
+      next('/home');
+    } else {
+      next();
+    }
+  }
 }, {
   path: '/home',
   component: _components_HomeComponent__WEBPACK_IMPORTED_MODULE_4__["default"],
-  name: 'Home'
+  name: 'Home',
+  beforeEnter: function beforeEnter(to, from, next) {
+    axios.get('/api/user').then(function (res) {
+      console.log(res);
+      next();
+    })["catch"](function (err) {
+      next('/login');
+    });
+  }
 }];
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   routes: routes
+});
+router.beforeEach(function (to, from, next) {
+  var token = localStorage.getItem('ACCESS_TOKEN') || null;
+  console.log("Bearer " + token);
+  window.axios.defaults.headers['Authorization'] = "Bearer " + token;
 });
 /* harmony default export */ __webpack_exports__["default"] = (router);
 

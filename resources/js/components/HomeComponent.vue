@@ -50,7 +50,7 @@
             <v-main>
                 <v-container fluid>
                     <v-row>
-                        <v-col md="3" class="action-side">
+                        <v-col md="3" class="action-side" >
                             <v-btn text class="pl-12">
                                 <v-icon color="primary" large>mdi-twitter</v-icon>
                             </v-btn>
@@ -108,6 +108,7 @@
 </script>
 <style scoped>
     .action-side{
+        height: 100%;
         overflow-y:scroll;
     }
 </style>

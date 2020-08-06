@@ -9,25 +9,54 @@ Vue.use(VueRouter);
 const routes = [
     {
         path:'/',
-        component: Login
+        redirect:'/login'
     },
     {
         path:'/login',
         component:Login,
-        name:"Login"
+        name:"Login",
+        beforeEnter:(to,from,next) => {
+            if (localStorage.getItem('ACCESS_TOKEN')) {
+                next('/home');
+            } else {
+                next();
+            }
+        }
     },
     {
         path:'/register',
         component:Register,
-        name:'Register'
+        name:'Register',
+        beforeEnter:(to,from,next) => {
+            if (localStorage.getItem('ACCESS_TOKEN')) {
+                next('/home');
+            } else {
+                next();
+            }
+        }
     },
     {
         path:'/home',
         component:HomeComponent,
-        name:'Home'
+        name:'Home',
+        beforeEnter:(to,from,next) => {
+            axios.get('/api/user')
+                .then(res => {
+                    console.log(res)
+                    next();
+                })
+                .catch(err => {
+                    next('/login');
+                })
+        }
     }
 ];
 
 const router = new VueRouter({routes});
+router.beforeEach((to,from,next) => {
+    const token = localStorage.getItem('ACCESS_TOKEN') || null;
+    console.log("Bearer " + token);
+    window.axios.defaults.headers['Authorization'] = "Bearer " + token;
+})
 
 export default router;
