@@ -14,8 +14,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+Route::middleware('auth:api')->group(function(){
+    Route::get('/user', function () {
+        return $request->user();
+    });
+    Route::post('/tweet', 'TweetsController@store');
 });
 Route::post('/user/register','UsersController@register')->name('register.user');
 Route::post('/user/login','UsersController@login')->name('login.user');
