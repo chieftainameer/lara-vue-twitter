@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4f666bb7-dddb-4a1f-9b2c-c9cbb03dada7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../app/Http/Controllers/RelationshipsController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../app/Relationship.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../database/migrations/2020_08_08_180102_create_table_relationships.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/Tweet.php" beforeDir="false" afterPath="$PROJECT_DIR$/../app/Tweet.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/../app/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/../routes/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -177,7 +172,7 @@
       <updated>1596709674632</updated>
       <workItem from="1596709805216" duration="20008000" />
       <workItem from="1596822505384" duration="2344000" />
-      <workItem from="1596909302501" duration="1271000" />
+      <workItem from="1596909302501" duration="3168000" />
     </task>
     <servers />
   </component>
